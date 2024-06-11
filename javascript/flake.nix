@@ -17,8 +17,8 @@
         rec {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              nixpkgs.nodePackages.typescript-language-server
-              nixpkgs.nodePackages.typescript
+              nodePackages.typescript-language-server
+              nodePackages.typescript
             ];
           };
         })
