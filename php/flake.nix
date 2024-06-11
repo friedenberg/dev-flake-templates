@@ -19,6 +19,7 @@
             packages = with pkgs; [
               php
               phpPackages.composer
+              phpactor
             ];
           };
         })
