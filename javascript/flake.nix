@@ -19,6 +19,7 @@
             packages = with pkgs; [
               nodePackages.typescript-language-server
               nodePackages.typescript
+              nodejs
             ];
           };
         })
