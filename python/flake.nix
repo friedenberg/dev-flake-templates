@@ -7,12 +7,13 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, utils, nixpkgs-master}:
+  outputs = { self, nixpkgs, utils, nixpkgs-master }:
     (utils.lib.eachDefaultSystem
       (system:
-        let pkgs = import nixpkgs {
-          inherit system;
-        };
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
 
         in
 

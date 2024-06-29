@@ -10,12 +10,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils, nixpkgs-master, gomod2nix}:
+  outputs = { self, nixpkgs, utils, nixpkgs-master, gomod2nix }:
     (utils.lib.eachDefaultSystem
       (system:
-        let pkgs = import nixpkgs {
-          inherit system;
-        };
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
 
         in
 
