@@ -26,7 +26,7 @@
               niv
               nixd
               nixfmt
-              rnix-lsp
+              # rnix-lsp
               statix
               vulnix
             ];
