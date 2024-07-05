@@ -27,6 +27,7 @@
               golangci-lint
               gopls
               gotools
+              gomod2nix.packages.${system}.default
             ];
           };
         })
