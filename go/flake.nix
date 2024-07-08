@@ -21,6 +21,10 @@
         in
 
         rec {
+          legacyPackages = with gomod2nix; {
+            inherit gomod2nix mkGoEnv buildGoApplication;
+          };
+
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               go
@@ -28,6 +32,7 @@
               gopls
               gotools
               gomod2nix.packages.${system}.default
+              parallel
             ];
           };
         })
