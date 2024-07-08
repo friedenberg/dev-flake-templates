@@ -11,7 +11,7 @@
 
   outputs = { self, nixpkgs, utils, gomod2nix }:
     {
-      overlays = [ gomod2nix.overlays.default ];
+      overlays = gomod2nix.overlays;
     } //
     (utils.lib.eachDefaultSystem
       (system:
