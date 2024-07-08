@@ -10,6 +10,9 @@
   };
 
   outputs = { self, nixpkgs, utils, gomod2nix }:
+    {
+      overlays = [ gomod2nix.overlays.default ];
+    } //
     (utils.lib.eachDefaultSystem
       (system:
         let
@@ -21,7 +24,6 @@
         in
 
         rec {
-          overlays = [ gomod2nix.overlays.default ];
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               go
