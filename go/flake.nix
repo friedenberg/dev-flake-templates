@@ -21,10 +21,7 @@
         in
 
         rec {
-          legacyPackages = with gomod2nix; {
-            inherit gomod2nix mkGoEnv buildGoApplication;
-          };
-
+          overlays = [ gomod2nix.overlays.default ];
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               go
