@@ -23,7 +23,7 @@
 
         in
 
-        rec {
+        {
           packages.${system} = with pkgs; {
             inherit go;
             inherit golangci-lint;
@@ -44,6 +44,7 @@
               gomod2nix.packages.${system}.default
             ];
           };
-        })
+        }
+      )
     );
 }
