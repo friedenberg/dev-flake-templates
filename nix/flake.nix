@@ -16,19 +16,20 @@
 
         in
 
-        rec {
+        {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              cachix
+              # cachix
               # haskellPackages.dhall-nix
-              lorri
-              niv
+              # lorri
+              # niv
               # nixd
-              # nixfmt
+              nixfmt
               nixfmt-rfc-style
               # rnix-lsp
-              statix
-              vulnix
+              # statix
+              # vulnix
+              nil
             ];
           };
         })

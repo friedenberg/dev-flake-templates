@@ -21,28 +21,25 @@
             inherit system;
           };
 
-        in
-
-        {
-          packages.${system} = with pkgs; {
-            inherit go;
-            inherit golangci-lint;
-            inherit gopls;
-            inherit gotools;
-            inherit parallel;
-
-            gomod2nix = gomod2nix.packages.${system}.default;
-          };
-
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
+          packages = {
+            inherit (pkgs)
               go
               golangci-lint
               gopls
               gotools
               parallel
-              gomod2nix.packages.${system}.default
-            ];
+              ;
+
+            gomod2nix = gomod2nix.packages.${system}.default;
+          };
+
+        in
+
+        {
+          inherit packages;
+
+          devShells.default = pkgs.mkShell {
+            packages = builtins.attrValues packages;
           };
         }
       )
