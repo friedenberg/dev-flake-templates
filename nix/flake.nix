@@ -24,7 +24,7 @@
               # lorri
               # niv
               # nixd
-              nixfmt
+              nixfmt-classic
               nixfmt-rfc-style
               # rnix-lsp
               # statix
