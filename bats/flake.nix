@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based Nix development environment";
+  description = "A Nix-flake-based BATS development environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -19,8 +19,10 @@
         {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              nil
-              nixfmt-rfc-style
+              bats
+              parallel
+              shellcheck
+              shfmt
             ];
           };
         })

@@ -61,6 +61,11 @@
 
     {
       templates = rec {
+        bats = {
+          path = ./bats;
+          description = "BATS development environment";
+        };
+
         clojure = {
           path = ./clojure;
           description = "Clojure development environment";
