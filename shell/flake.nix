@@ -16,11 +16,12 @@
 
         in
 
-        rec {
+        {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              shellcheck
+              bats
               nodePackages.bash-language-server
+              shellcheck
               shfmt
             ];
           };
