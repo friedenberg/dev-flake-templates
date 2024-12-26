@@ -25,9 +25,10 @@
           packages = {
             inherit (pkgs)
               go_1_23
-              gopls
               golangci-lint
+              gopls
               gotools
+              govulncheck
               parallel
               ;
 
