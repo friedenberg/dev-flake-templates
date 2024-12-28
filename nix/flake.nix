@@ -22,15 +22,25 @@
           inherit system;
         };
 
+        packages = {
+          inherit (pkgs)
+            nil
+            nixfmt-rfc-style
+            ;
+
+          fh = fh.packages.${system}.default;
+        };
+
       in
 
       {
+        inherit packages;
+
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            fh.packages.${system}.default
+          packages = with packages; [
             nil
             nixfmt-rfc-style
-          ];
+          ] ++ [ fh.packages.${system}.default ];
         };
       })
     );
