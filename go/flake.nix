@@ -24,7 +24,7 @@
 
           packages = {
             inherit (pkgs)
-              go_1_23
+              go
               golangci-lint
               gopls
               gotools
