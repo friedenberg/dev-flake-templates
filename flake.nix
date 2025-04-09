@@ -86,6 +86,11 @@
           description = "Dhall development environment";
         };
 
+        digital_ocean = {
+          path = ./digital_ocean;
+          description = "digital ocean development environment";
+        };
+
         elixir = {
           path = ./elixir;
           description = "Elixir development environment";
@@ -213,6 +218,7 @@
 
         # Aliases
         rt = rust-toolchain;
+        do = digital_ocean;
       };
     };
 }

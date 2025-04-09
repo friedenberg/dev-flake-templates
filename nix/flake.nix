@@ -24,8 +24,10 @@
 
         packages = {
           inherit (pkgs)
+            parallel
             nil
             nixfmt-rfc-style
+            nixpkgs-fmt
             ;
 
           fh = fh.packages.${system}.default;
@@ -37,11 +39,9 @@
         inherit packages;
 
         devShells.default = pkgs.mkShell {
-          packages = with packages; [
-            nil
-            nixfmt-rfc-style
-          ] ++ [ fh.packages.${system}.default ];
+          packages = builtins.attrValues packages;
         };
-      })
+      }
+      )
     );
 }
