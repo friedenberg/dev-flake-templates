@@ -1,19 +1,24 @@
-targets := find . -maxdepth 1 -type d ! -name '.*' -print0
+targets := "find . -maxdepth 1 -type d ! -name '.*' -print0"
 
-all: flake-update-all
+all: update-nix-all build-nix-all
 
-flake-update target:
+update-nix-all:
+  #! /usr/bin/env -S bash
+  find . -maxdepth 1 -type d ! -name '.*' -print0 \
+    | xargs -0 -L1 just update-nix
+
+update-nix target:
   #! /usr/bin/env -S bash -e
   pushd "{{invocation_directory()}}/{{target}}" >/dev/null
   nix flake update
 
 # TODO doesn't work yet
-flake-build target:
+build-nix target:
   #! /usr/bin/env -S bash -e
   pushd "{{invocation_directory()}}/{{target}}" >/dev/null
   nix build
 
-flake-update-all:
+build-nix-all:
   #! /usr/bin/env -S bash
   find . -maxdepth 1 -type d ! -name '.*' -print0 \
-    | xargs -0 -L1 just flake-update
+    | xargs -0 -L1 just build-nix

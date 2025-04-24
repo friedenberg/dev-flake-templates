@@ -211,6 +211,21 @@
           description = "Shell script development environment";
         };
 
+        system-packages-common = {
+          path = ./system-packages-common;
+          # description = "Shell script development environment";
+        };
+
+        system-packages-linux = {
+          path = ./system-packages-linux;
+          # description = "Shell script development environment";
+        };
+
+        system-packages-darwin = {
+          path = ./system-packages-darwin;
+          # description = "Shell script development environment";
+        };
+
         zig = {
           path = ./zig;
           description = "Zig development environment";
